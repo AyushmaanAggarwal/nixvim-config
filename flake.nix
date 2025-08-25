@@ -2,7 +2,7 @@
   description = "Ayu's NixVim Configuration";
 
   inputs = {
-    nixpkgs.follows = "nixvim/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
   };
 
