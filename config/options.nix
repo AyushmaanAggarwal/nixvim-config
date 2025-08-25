@@ -81,13 +81,37 @@
       action = "vim.diagnostic.setloclist";
       options = { desc = "Open diagnostic [Q]uickfix list"; };
     }
-
     # Exit terminal mode
     {
       mode = "t";
       key = "<Esc><Esc>";
       action = "<C-\\><C-n>";
       options = { desc = "Exit terminal mode"; };
+    }
+    # Move focus between window splits
+    {
+      mode = "n";
+      key = "<C-h>";
+      action = "<C-w><C-h>";
+      options = { desc = "Move focus to the left window"; };
+    }
+    {
+      mode = "n";
+      key = "<C-l>";
+      action = "<C-w><C-l>";
+      options = { desc = "Move focus to the right window"; };
+    }
+    {
+      mode = "n";
+      key = "<C-k>";
+      action = "<C-w><C-k>";
+      options = { desc = "Move focus to the top window"; };
+    }
+    {
+      mode = "n";
+      key = "<C-j>";
+      action = "<C-w><C-j>";
+      options = { desc = "Move focus to the bottom window"; };
     }
 
   ];

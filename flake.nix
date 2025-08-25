@@ -15,21 +15,26 @@
     in {
       checks = forAllSystems (system:
         let
+          pkgs = nixpkgs.legacyPackages.${system};
+          lib = nixpkgs.legacyPackages.${system};
           nixvimLib = nixvim.lib.${system};
           nixvimModule = {
             inherit system;
-            module = import ./config;
+            module = import ./config { inherit pkgs lib; };
           };
         in {
+          # Lets you run `nix flake check .` to check nixvim
           default =
             nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
         });
       packages = forAllSystems (system:
         let
+          pkgs = nixpkgs.legacyPackages.${system};
+          lib = nixpkgs.legacyPackages.${system};
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             inherit system;
-            module = import ./config;
+            module = import ./config { inherit pkgs lib; };
           };
         in {
           # Lets you run `nix run .` to start nixvim
