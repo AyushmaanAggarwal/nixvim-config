@@ -14,6 +14,7 @@
 
     # Code Runner
     ./dap.nix
+    ./jupyter
 
     # Parse Code
     ./lsp.nix
