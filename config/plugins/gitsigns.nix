@@ -9,7 +9,7 @@
         add.text = "+";
         change.text = "│";
         changedelete.text = "~";
-        delete.text = "-";
+        delete.text = "_";
         topdelete.text = "‾";
         untracked.text = "┆";
       };
@@ -30,7 +30,9 @@
           end
         end
       '';
-      options = { desc = "Jump to next git [c]hange"; };
+      options = {
+        desc = "Jump to next git [c]hange";
+      };
     }
     {
       mode = "n";
@@ -44,7 +46,9 @@
           end
         end
       '';
-      options = { desc = "Jump to previous git [c]hange"; };
+      options = {
+        desc = "Jump to previous git [c]hange";
+      };
     }
 
     # Actions
@@ -57,7 +61,9 @@
           require('gitsigns').stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end
       '';
-      options = { desc = "git [s]tage hunk"; };
+      options = {
+        desc = "git [s]tage hunk";
+      };
     }
     {
       mode = "v";
@@ -67,7 +73,9 @@
           require('gitsigns').reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end
       '';
-      options = { desc = "git [r]eset hunk"; };
+      options = {
+        desc = "git [r]eset hunk";
+      };
     }
     # normal mode
     {
@@ -78,7 +86,9 @@
           require('gitsigns').stage_hunk()
         end
       '';
-      options = { desc = "git [s]tage hunk"; };
+      options = {
+        desc = "git [s]tage hunk";
+      };
     }
     {
       mode = "n";
@@ -88,7 +98,9 @@
           require('gitsigns').reset_hunk()
         end
       '';
-      options = { desc = "git [r]eset hunk"; };
+      options = {
+        desc = "git [r]eset hunk";
+      };
     }
     {
       mode = "n";
@@ -98,7 +110,9 @@
           require('gitsigns').stage_buffer()
         end
       '';
-      options = { desc = "git [S]tage buffer"; };
+      options = {
+        desc = "git [S]tage buffer";
+      };
     }
     {
       mode = "n";
@@ -108,7 +122,9 @@
           require('gitsigns').undo_stage_hunk()
         end
       '';
-      options = { desc = "git [u]ndo stage hunk"; };
+      options = {
+        desc = "git [u]ndo stage hunk";
+      };
     }
     {
       mode = "n";
@@ -118,7 +134,9 @@
           require('gitsigns').reset_buffer()
         end
       '';
-      options = { desc = "git [R]eset buffer"; };
+      options = {
+        desc = "git [R]eset buffer";
+      };
     }
     {
       mode = "n";
@@ -128,7 +146,9 @@
           require('gitsigns').preview_hunk()
         end
       '';
-      options = { desc = "git [p]review hunk"; };
+      options = {
+        desc = "git [p]review hunk";
+      };
     }
     {
       mode = "n";
@@ -138,7 +158,9 @@
           require('gitsigns').blame_line({ full = true })
         end
       '';
-      options = { desc = "git [b]lame line"; };
+      options = {
+        desc = "git [b]lame line";
+      };
     }
     {
       mode = "n";
@@ -148,7 +170,9 @@
           require('gitsigns').diffthis()
         end
       '';
-      options = { desc = "git [d]iff against index"; };
+      options = {
+        desc = "git [d]iff against index";
+      };
     }
     {
       mode = "n";
@@ -158,7 +182,9 @@
           require('gitsigns').diffthis '@'
         end
       '';
-      options = { desc = "git [D]iff against last commit"; };
+      options = {
+        desc = "git [D]iff against last commit";
+      };
     }
     # Toggles
     {
@@ -169,7 +195,9 @@
           require('gitsigns').toggle_current_line_blame()
         end
       '';
-      options = { desc = "[T]oggle git show [b]lame line"; };
+      options = {
+        desc = "[T]oggle git show [b]lame line";
+      };
     }
     {
       mode = "n";
@@ -179,7 +207,9 @@
           require('gitsigns').preview_hunk_inline()
         end
       '';
-      options = { desc = "[T]oggle git show [D]eleted"; };
+      options = {
+        desc = "[T]oggle git show [D]eleted";
+      };
     }
   ];
 }
