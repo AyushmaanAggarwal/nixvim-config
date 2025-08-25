@@ -1,8 +1,8 @@
 {
-  plugins.vimwiki = {
+  plugins.vimtex = {
     enable = true;
     settings = {
-      view_general_viewer = "zathura";
+      view_method = "zathura";
       complier_method = "pdflatex";
       compiler_latexmk = {
         out_dir = "./output";

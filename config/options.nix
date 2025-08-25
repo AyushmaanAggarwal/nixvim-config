@@ -1,6 +1,7 @@
 {
   # Options
   enableMan = true;
+  clipboard.providers.wl-copy.enable = true;
 
   globals = {
     mapleader = " ";

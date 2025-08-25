@@ -18,4 +18,7 @@
       };
     };
   };
+
+  # Dependencies
+  plugins.otter.enable = true;
 }

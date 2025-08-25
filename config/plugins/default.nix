@@ -2,11 +2,11 @@
   imports = [
     # File Management
     ./oil.nix
-    ./conform.nix
     ./neo-tree.nix
 
     # Autocomplete
     ./cmp.nix
+    ./conform.nix
     ./nvim-autopairs.nix
 
     # Git 
@@ -15,6 +15,7 @@
     # Code Runner
     ./dap.nix
     ./jupyter
+    ./documents
 
     # Parse Code
     ./lsp.nix
