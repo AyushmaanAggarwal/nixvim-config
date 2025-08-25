@@ -43,17 +43,17 @@
       flake = {
         nixosModules.default = { config, pkgs, lib, ... }: {
           imports = [ inputs.nixvim.nixosModules.nixvim ];
-          programs.nixvim = import ./config { inherit pkgs lib; };
+          programs.nixvim-config = import ./config { inherit pkgs lib; };
         };
 
         homeManagerModules.default = { config, pkgs, lib, ... }: {
           imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-          programs.nixvim = import ./config { inherit pkgs lib; };
+          programs.nixvim-config = import ./config { inherit pkgs lib; };
         };
 
         darwinModules.default = { config, pkgs, lib, ... }: {
           imports = [ inputs.nixvim.darwinModules.nixvim ];
-          programs.nixvim = import ./config { inherit pkgs lib; };
+          programs.nixvim-config = import ./config { inherit pkgs lib; };
         };
       };
     };
