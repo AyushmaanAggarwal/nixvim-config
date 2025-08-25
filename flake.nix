@@ -4,9 +4,10 @@
   inputs = {
     nixpkgs.follows = "nixvim/nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, nixvim, ... }:
+  outputs = { nixpkgs, nixvim, ... }@inputs:
     let
       systems =
         [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
@@ -40,5 +41,21 @@
           # Lets you run `nix run .` to start nixvim
           default = nixvim'.makeNixvimWithModule nixvimModule;
         });
+      flake = {
+        nixosModules.default = { config, pkgs, lib, ... }: {
+          imports = [ inputs.nixvim.nixosModules.nixvim ];
+          programs.nixvim = import ./config { inherit pkgs lib; };
+        };
+
+        homeManagerModules.default = { config, pkgs, lib, ... }: {
+          imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+          programs.nixvim = import ./config { inherit pkgs lib; };
+        };
+
+        darwinModules.default = { config, pkgs, lib, ... }: {
+          imports = [ inputs.nixvim.darwinModules.nixvim ];
+          programs.nixvim = import ./config { inherit pkgs lib; };
+        };
+      };
     };
 }
