@@ -1,7 +1,4 @@
 {
-  # Colorscheme
-  colorschemes.vscode.enable = true;
-
   # Options
   enableMan = true;
 

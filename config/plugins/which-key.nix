@@ -1,8 +1,10 @@
 {
+  # Useful plugin to show you pending keybinds.
+  # https://nix-community.github.io/nixvim/plugins/which-key/index.html
   plugins.which-key = {
     enable = true;
     settings = {
-      delay = 100;
+      delay = 0;
       expand = 1;
       notify = false;
       preset = false;

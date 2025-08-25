@@ -1,55 +1,52 @@
-{ lib, pkgs, ... }: {
-  extraPackages = with pkgs; [ stylua nixfmt-rfc-style ];
+{ pkgs, ... }: {
+  # Dependencies
+  #
+  # https://nix-community.github.io/nixvim/NeovimOptions/index.html#extrapackages
+  extraPackages = with pkgs; [
+    # Used to format Lua code
+    stylua
+    nixfmt-rfc-style
+  ];
 
+  # Autoformat
+  # https://nix-community.github.io/nixvim/plugins/conform-nvim.html
   plugins.conform-nvim = {
     enable = true;
     settings = {
+      notify_on_error = false;
+      format_on_save = ''
+        function(bufnr)
+          -- Disable "format_on_save lsp_fallback" for lanuages that don't
+          -- have a well standardized coding style. You can add additional
+          -- lanuages here or re-enable it for the disabled ones.
+          local disable_filetypes = { c = true, cpp = true }
+          if disable_filetypes[vim.bo[bufnr].filetype] then
+            return nil
+          else
+            return {
+              timeout_ms = 500,
+              lsp_format = "fallback",
+            }
+          end
+        end
+      '';
       formatters_by_ft = {
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
-        "_" = [ "squeeze_blanks" "trim_whitespace" "trim_newlines" ];
-      };
-      format_on_save = # Lua
-        ''
-          function(bufnr)
-            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-              return
-            end
-
-            if slow_format_filetypes[vim.bo[bufnr].filetype] then
-              return
-            end
-
-            local function on_format(err)
-              if err and err:match("timeout$") then
-                slow_format_filetypes[vim.bo[bufnr].filetype] = true
-              end
-            end
-
-            return { timeout_ms = 200, lsp_fallback = true }, on_format
-           end
-        '';
-      format_after_save = # Lua
-        ''
-          function(bufnr)
-            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-              return
-            end
-
-            if not slow_format_filetypes[vim.bo[bufnr].filetype] then
-              return
-            end
-
-            return { lsp_fallback = true }
-          end
-        '';
-      log_level = "warn";
-      notify_on_error = false;
-      notify_no_formatters = false;
-      formatters = {
-        squeeze_blanks = { command = lib.getExe' pkgs.coreutils "cat"; };
+        # python = [ "isort "black" ];
       };
     };
-
   };
+
+  # https://nix-community.github.io/nixvim/keymaps/index.html
+  keymaps = [{
+    mode = "";
+    key = "<leader>f";
+    action.__raw = ''
+      function()
+        require('conform').format { async = true, lsp_fallback = true }
+      end
+    '';
+    options = { desc = "[F]ormat buffer"; };
+  }];
 }
