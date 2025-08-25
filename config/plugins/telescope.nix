@@ -149,7 +149,7 @@
     # Shortcut for searching your Neovim configuration files
     {
       mode = "n";
-      key = "<leader>sn";
+      key = "<leader>sN";
       action.__raw = ''
         function()
           require('telescope.builtin').find_files {
@@ -161,7 +161,7 @@
     }
     {
       mode = "n";
-      key = "<leader>sa";
+      key = "<leader>sD";
       action.__raw = ''
         function()
           require('telescope.builtin').find_files {
@@ -169,7 +169,19 @@
           }
         end
       '';
-      options = { desc = "[S]earch [A]ll dotfiles"; };
+      options = { desc = "[S]earch [D]otfiles"; };
+    }
+    {
+      mode = "n";
+      key = "<leader>sW";
+      action.__raw = ''
+        function()
+          require('telescope.builtin').find_files {
+            cwd = '/home/ayushmaan/Documents/Obsidian/'
+          }
+        end
+      '';
+      options = { desc = "[S]earch [W]iki"; };
     }
 
   ];

@@ -10,6 +10,7 @@
     ./nvim-autopairs.nix
 
     # Git 
+    ./fugitive.nix
     ./gitsigns.nix
 
     # Code Runner
