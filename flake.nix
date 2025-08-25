@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.follows = "nixvim/nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, nixvim, ... }@inputs:
