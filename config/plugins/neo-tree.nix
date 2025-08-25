@@ -6,11 +6,10 @@
 
     filesystem.window.mappings = { "\\" = "close_window"; };
     defaultComponentConfigs.icon = {
-        folderClosed = "";
-        folderOpen = "";
-        folderEmpty = "";
-        folderEmptyOpen = "";
-      };
+      folderClosed = "";
+      folderOpen = "";
+      folderEmpty = "";
+      folderEmptyOpen = "";
     };
   };
 
