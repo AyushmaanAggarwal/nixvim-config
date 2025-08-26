@@ -8,11 +8,14 @@ nix run github:AyushmaanAggarwal/nixvim-config
 ```
 
 # Install
-Install the neovim configuration by adding the following to nix-modules, home-manager, nix-darwin
+Install the neovim configuration by adding the following to a nix-flakes setup 
+Add the input to `flake.nix`
 ```nix
-{ inputs, ... }: {
-  imports = [ inputs.nixvim-config.nixosModules.default ];
-
-  programs.nixvim-config.enable = true;
+inputs.nixvim-config.url = "github:AyushmaanAggarwal/nixvim-config";
+```
+and then add the package
+```nix
+{inputs, system, ...}: {
+  environment.systemPackages = [ inputs.nixvim-flake.packages.${system}.default ];
 }
 ```

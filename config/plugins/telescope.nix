@@ -176,7 +176,7 @@
       key = "<leader>sW";
       action.__raw = ''
         function()
-          require('telescope.builtin').find_files {
+          require('telescope.builtin').live_grep {
             cwd = '/home/ayushmaan/Documents/Obsidian/'
           }
         end
