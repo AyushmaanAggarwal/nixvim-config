@@ -1,1 +1,8 @@
-{ imports = [ ./image.nix ./quarto.nix ./molten.nix ]; }
+{
+  imports = [
+    ./image.nix
+    ./quarto.nix
+    ./molten.nix
+    ./jupytext.nix
+  ];
+}

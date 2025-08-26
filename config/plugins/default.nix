@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     # File Management
     ./oil.nix
@@ -9,7 +10,7 @@
     ./conform.nix
     ./nvim-autopairs.nix
 
-    # Git 
+    # Git
     ./fugitive.nix
     ./gitsigns.nix
 
@@ -21,6 +22,7 @@
     # Parse Code
     ./lsp.nix
     ./lint.nix
+    ./guess-indent.nix
     ./treesitter.nix
     ./indent_line.nix
     ./todo-comments.nix
