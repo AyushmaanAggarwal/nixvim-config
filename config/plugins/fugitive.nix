@@ -41,13 +41,13 @@
     {
       mode = "n";
       key = "<leader>gpd";
-      action = "<cmd>Git<CR>";
+      action = "<cmd>Git pull<CR>";
       options.desc = "[G]it [P]ull [D]own";
     }
     {
       mode = "n";
       key = "<leader>gpu";
-      action = "<cmd>Git<CR>";
+      action = "<cmd>Git push<CR>";
       options.desc = "[G]it [P]ush [U]p";
     }
 
