@@ -1,4 +1,8 @@
+{ pkgs, ... }:
 {
+  extraPackages = with pkgs; [
+    python313Packages.jupytext
+  ];
   plugins.jupytext = {
     enable = true;
 
