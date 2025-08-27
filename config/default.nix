@@ -1,1 +1,10 @@
-{ ... }: { imports = [ ./options.nix ./plugins ./theme.nix ]; }
+{ ... }:
+{
+  imports = [
+    ./plugins
+
+    ./options.nix
+    ./keymaps.nix
+    ./theme.nix
+  ];
+}

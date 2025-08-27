@@ -68,13 +68,11 @@ in
     }
   ]
   # Move focus between window splits
-  ++ lib.mapAttrsToList (
-    location: key: {
-      mode = "n";
-      key = "<leader>${key}";
-      action = "<C-w><C-${key}>";
-      options.desc = "Move focus to the ${location} window";
-    }
-  );
+  ++ (lib.mapAttrsToList (location: key: {
+    mode = "n";
+    key = "<leader>${key}";
+    action = "<C-w><C-${key}>";
+    options.desc = "Move focus to the ${location} window";
+  }) hjkl_keymap);
 
 }
