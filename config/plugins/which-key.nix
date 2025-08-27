@@ -10,14 +10,31 @@
       preset = false;
       replace = {
         desc = [
-          [ "<space>" "SPACE" ]
-          [ "<leader>" "SPACE" ]
-          [ "<[cC][rR]>" "RETURN" ]
-          [ "<[tT][aA][bB]>" "TAB" ]
-          [ "<[bB][sS]>" "BACKSPACE" ]
+          [
+            "<space>"
+            "SPACE"
+          ]
+          [
+            "<leader>"
+            "SPACE"
+          ]
+          [
+            "<[cC][rR]>"
+            "RETURN"
+          ]
+          [
+            "<[tT][aA][bB]>"
+            "TAB"
+          ]
+          [
+            "<[bB][sS]>"
+            "BACKSPACE"
+          ]
         ];
       };
-      win = { border = "single"; };
+      win = {
+        border = "single";
+      };
     };
   };
 }

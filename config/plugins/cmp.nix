@@ -3,13 +3,16 @@
   #  https://nix-community.github.io/nixvim/plugins/luasnip/index.html
   plugins.luasnip = {
     enable = true;
-    fromLua = [{ paths = ../snippets; }];
+    fromLua = [ { paths = ../snippets; } ];
     settings = {
       enable_autosnippets = true;
       exit_roots = false;
       keep_roots = true;
       link_roots = true;
-      update_events = [ "TextChanged" "TextChangedI" ];
+      update_events = [
+        "TextChanged"
+        "TextChangedI"
+      ];
     };
   };
 
@@ -56,7 +59,12 @@
       };
 
       sources = {
-        default = [ "lsp" "path" "snippets" "lazydev" ];
+        default = [
+          "lsp"
+          "path"
+          "snippets"
+          "lazydev"
+        ];
         providers = {
           lazydev = {
             module = "lazydev.integrations.blink";
@@ -65,7 +73,9 @@
         };
       };
 
-      snippets = { preset = "luasnip"; };
+      snippets = {
+        preset = "luasnip";
+      };
 
       # Blink.cmp includes an optional, recommended rust fuzzy matcher,
       # which automatically downloads a prebuilt binary when enabled.
@@ -74,10 +84,14 @@
       # the rust implementation via `'prefer_rust_with_warning'`
       #
       # See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = "lua"; };
+      fuzzy = {
+        implementation = "lua";
+      };
 
       # Shows a signature help window while you type arguments for a function
-      signature = { enabled = true; };
+      signature = {
+        enabled = true;
+      };
     };
   };
   keymaps = [

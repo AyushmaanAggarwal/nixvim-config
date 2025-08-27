@@ -4,7 +4,9 @@
   plugins.neo-tree = {
     enable = true;
 
-    filesystem.window.mappings = { "\\" = "close_window"; };
+    filesystem.window.mappings = {
+      "\\" = "close_window";
+    };
     defaultComponentConfigs.icon = {
       folderClosed = "";
       folderOpen = "";
@@ -14,10 +16,13 @@
   };
 
   # https://nix-community.github.io/nixvim/keymaps/index.html
-  keymaps = [{
-    key = "\\";
-    action = "<cmd>Neotree reveal<cr>";
-    options = { desc = "NeoTree reveal"; };
-  }];
+  keymaps = [
+    {
+      key = "\\";
+      action = "<cmd>Neotree reveal<cr>";
+      options = {
+        desc = "NeoTree reveal";
+      };
+    }
+  ];
 }
-

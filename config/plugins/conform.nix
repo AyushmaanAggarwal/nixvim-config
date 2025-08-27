@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Dependencies
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html#extrapackages
   extraPackages = with pkgs; [
@@ -38,14 +39,18 @@
   };
 
   # https://nix-community.github.io/nixvim/keymaps/index.html
-  keymaps = [{
-    mode = "";
-    key = "<leader>f";
-    action.__raw = ''
-      function()
-        require('conform').format { async = true, lsp_fallback = true }
-      end
-    '';
-    options = { desc = "[F]ormat buffer"; };
-  }];
+  keymaps = [
+    {
+      mode = "";
+      key = "<leader>f";
+      action.__raw = ''
+        function()
+          require('conform').format { async = true, lsp_fallback = true }
+        end
+      '';
+      options = {
+        desc = "[F]ormat buffer";
+      };
+    }
+  ];
 }

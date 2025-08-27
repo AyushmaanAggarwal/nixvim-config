@@ -11,7 +11,9 @@
       #  - va)  - [V]isually select [A]round [)]paren
       #  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       #  - ci'  - [C]hange [I]nside [']quote
-      ai = { n_lines = 500; };
+      ai = {
+        n_lines = 500;
+      };
 
       # Add/delete/replace surroundings (brackets, quotes, etc.)
       #
@@ -24,7 +26,9 @@
       # Simple and easy statusline.
       #  You could remove this setup call if you don't like it,
       #  and try some other statusline plugin
-      statusline = { use_icons.__raw = "vim.g.have_nerd_font"; };
+      statusline = {
+        use_icons.__raw = "vim.g.have_nerd_font";
+      };
 
       # Check out: https://github.com/echasnovski/mini.nvim
     };
@@ -40,4 +44,3 @@
     end
   '';
 }
-

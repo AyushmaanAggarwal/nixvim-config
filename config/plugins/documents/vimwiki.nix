@@ -2,11 +2,13 @@
   plugins.vimwiki = {
     enable = true;
     settings = {
-      list = [{
-        path = "~/Documents/Obsidian";
-        syntax = "markdown";
-        ext = ".md";
-      }];
+      list = [
+        {
+          path = "~/Documents/Obsidian";
+          syntax = "markdown";
+          ext = ".md";
+        }
+      ];
       ext2syntax = {
         ".md" = "markdown";
         ".markdown" = "markdown";
