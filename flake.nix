@@ -6,14 +6,23 @@
     nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = { nixpkgs, nixvim, ... }@inputs:
+  outputs =
+    { nixpkgs, nixvim, ... }@inputs:
     let
-      systems =
-        [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-      checks = forAllSystems (system:
+    in
+    {
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      checks = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           lib = nixpkgs.legacyPackages.${system};
@@ -22,12 +31,14 @@
             inherit system;
             module = import ./config { inherit pkgs lib; };
           };
-        in {
+        in
+        {
           # Lets you run `nix flake check .` to check nixvim
-          default =
-            nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-        });
-      packages = forAllSystems (system:
+          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+        }
+      );
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           lib = nixpkgs.legacyPackages.${system};
@@ -36,9 +47,11 @@
             inherit system;
             module = import ./config { inherit pkgs lib; };
           };
-        in {
+        in
+        {
           # Lets you run `nix run .` to start nixvim
           default = nixvim'.makeNixvimWithModule nixvimModule;
-        });
+        }
+      );
     };
 }

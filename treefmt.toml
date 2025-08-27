@@ -1,0 +1,8 @@
+# The formatter multiplexer - https://github.com/numtide/treefmt
+excludes = ["*.md", "*.pdf", "Makefile"]
+
+[formatter.nix]
+command = "nix"
+options = ["fmt"]
+includes = [ "*.nix" ]
+priority = 0

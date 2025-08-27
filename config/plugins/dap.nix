@@ -1,6 +1,8 @@
 {
   # Shows how to use the DAP plugin to debug your code.
-  plugins.dap = { enable = true; };
+  plugins.dap = {
+    enable = true;
+  };
 
   # Creates a beautiful debugger UI
   plugins.dap-ui = {
@@ -30,7 +32,9 @@
   };
 
   # Add your own debuggers here
-  plugins.dap-python = { enable = true; };
+  plugins.dap-python = {
+    enable = true;
+  };
 
   # https://nix-community.github.io/nixvim/keymaps/index.html
   keymaps = [
@@ -43,7 +47,7 @@
           require('dap').continue()
         end
       '';
-      options = { desc = "Debug: Start/Continue"; };
+      options.desc = "Debug: Start/Continue";
     }
     {
       mode = "n";
@@ -53,7 +57,7 @@
           require('dap').step_into()
         end
       '';
-      options = { desc = "Debug: Step Into"; };
+      options.desc = "Debug: Step Into";
     }
     {
       mode = "n";
@@ -63,7 +67,7 @@
           require('dap').step_over()
         end
       '';
-      options = { desc = "Debug: Step Over"; };
+      options.desc = "Debug: Step Over";
     }
     {
       mode = "n";
@@ -73,7 +77,7 @@
           require('dap').step_out()
         end
       '';
-      options = { desc = "Debug: Step Out"; };
+      options.desc = "Debug: Step Out";
     }
     {
       mode = "n";
@@ -83,7 +87,7 @@
           require('dap').toggle_breakpoint()
         end
       '';
-      options = { desc = "Debug: Toggle Breakpoint"; };
+      options.desc = "Debug: Toggle Breakpoint";
     }
     {
       mode = "n";
@@ -93,7 +97,7 @@
           require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
         end
       '';
-      options = { desc = "Debug: Set Breakpoint"; };
+      options.desc = "Debug: Set Breakpoint";
     }
     # Toggle to see last session result. Without this, you can't see session output
     # in case of unhandled exception.
@@ -105,7 +109,7 @@
           require('dapui').toggle()
         end
       '';
-      options = { desc = "Debug: See last session result."; };
+      options.desc = "Debug: See last session result.";
     }
   ];
 
@@ -128,4 +132,3 @@
     require('dap').listeners.before.event_exited['dapui_config'] = require('dapui').close
   '';
 }
-
