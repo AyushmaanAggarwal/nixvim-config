@@ -61,6 +61,9 @@
         enable = true;
       };
 
+      # Verilog
+      verible.enable = true;
+
       # Lua lsp
       lua_ls = {
         enable = true;
