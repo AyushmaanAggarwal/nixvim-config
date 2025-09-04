@@ -50,6 +50,12 @@
       action = "<cmd>Git push<CR>";
       options.desc = "[G]it [P]ush [U]p";
     }
+    {
+      mode = "n";
+      key = "<leader>gm";
+      action = "<cmd>Git mergetool<CR>";
+      options.desc = "[G]it [M]erge tool";
+    }
 
   ];
 }
