@@ -18,7 +18,9 @@
       window_overlap_clear_ft_ignore = [
         "cmp_menu"
         "cmp_docs"
-        ""
+        "snacks_notif"
+        "scrollview"
+        "scrollview_sign"
       ];
       integrations = {
         markdown = {
