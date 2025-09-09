@@ -11,7 +11,6 @@
     settings = {
       backend = "kitty";
       processor = "magick_rock";
-      kitty_method = "normal";
       max_height_window_percentage = 40;
       max_width_window_percentage = 80;
       window_overlap_clear_enabled = true;
@@ -27,7 +26,7 @@
           enabled = true;
           clear_in_insert_mode = false;
           download_remote_images = true;
-          only_render_image_at_cursor = false;
+          only_render_image_at_cursor = true;
           floating_windows = true;
           filetypes = [
             "markdown"
@@ -62,4 +61,5 @@
     };
 
   };
+
 }
