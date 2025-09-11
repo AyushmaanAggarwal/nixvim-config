@@ -8,7 +8,6 @@
     # Autocomplete
     ./cmp.nix
     ./conform.nix
-    ./nvim-autopairs.nix
 
     # Git
     ./fugitive.nix
