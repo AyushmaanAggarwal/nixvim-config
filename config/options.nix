@@ -44,7 +44,7 @@
     # Spell check
     spelllang = "en";
     spell = true;
-    fileformats = "unix,dos,mac";
+    fixendofline = false;
   };
 
 }
