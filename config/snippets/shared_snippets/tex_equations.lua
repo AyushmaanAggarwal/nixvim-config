@@ -98,18 +98,15 @@ local tab_snips = {
 
 	s(
 		{ trig = "diff(%d)", regTrig = true, name = "exponent" },
-		fmta(
-			"\\frac{\\partial^<>}{\\partial <>^<>}",
-			{
-				f(function(_, snip)
-					return snip.captures[1]
-				end),
-				i(1),
-				f(function(_, snip)
-					return snip.captures[1]
-				end),
-			}
-		)
+		fmta("\\frac{\\partial^<>}{\\partial <>^<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			i(1),
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+		})
 	),
 
 	-- tikz Diagrams
@@ -179,11 +176,14 @@ local auto_snips = {
 		{ trig = "(%a)(%d)", regTrig = true, name = "auto subscript" },
 		fmta(
 			[[<>_<>]],
-			{ f(function(_, snip)
-				return snip.captures[1]
-			end), f(function(_, snip)
-				return snip.captures[2]
-			end) }
+			{
+				f(function(_, snip)
+					return snip.captures[1]
+				end),
+				f(function(_, snip)
+					return snip.captures[2]
+				end),
+			}
 		)
 	),
 
@@ -191,17 +191,20 @@ local auto_snips = {
 		{ trig = "(%a)_(%d%d)", regTrig = true, name = "auto subscript 2" },
 		fmta(
 			[[<>_{<>}]],
-			{ f(function(_, snip)
-				return snip.captures[1]
-			end), f(function(_, snip)
-				return snip.captures[2]
-			end) }
+			{
+				f(function(_, snip)
+					return snip.captures[1]
+				end),
+				f(function(_, snip)
+					return snip.captures[2]
+				end),
+			}
 		)
 	),
 
 	-- Multi line Auto Complete Snippets
 	s(
-		{ trig = "==", regTrig = true, name = "align" },
+		{ trig = "==", regTrig = true, name = "next equation" },
 		fmta(
 			[[
   &<> <> \\
