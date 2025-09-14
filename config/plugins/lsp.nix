@@ -71,6 +71,7 @@
         # cmd = { };
         # filetypes = { };
         settings = {
+          format.enable = false;
           completion = {
             callSnippet = "Replace";
           };

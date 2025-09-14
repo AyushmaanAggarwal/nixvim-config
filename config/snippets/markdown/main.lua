@@ -24,22 +24,51 @@ local fmta = require("luasnip.extras.fmt").fmta
 -- local parse = require("luasnip.util.parser").parse_snippet
 -- local ms = ls.multi_snippet
 -- local k = require("luasnip.nodes.key_indexer").new_key
-local date = function() return {os.date('%m/%d/%Y')} end
-
-function count_in_file(word)
-  local status, result = pcall(function() return vim.api.nvim_exec2(":%s/" .. word .. "//ng", {output=true}) end)
-  if status then -- if no errors occured
-    return string.match(result["output"], "%d+") -- first number in "_ matches on _ lines"
-  else
-    return 0
-  end
+local date = function()
+	return { os.date("%m/%d/%Y") }
 end
 
-local problem_count = function() return {tostring(count_in_file("# Problem"))} end
+function count_in_file(word)
+	local status, result = pcall(function()
+		return vim.api.nvim_exec2(":%s/" .. word .. "//ng", { output = true })
+	end)
+	if status then -- if no errors occured
+		return string.match(result["output"], "%d+") -- first number in "_ matches on _ lines"
+	else
+		return 0
+	end
+end
 
+local problem_count = function()
+	return { tostring(count_in_file("# Problem")) }
+end
 
 return {
-  s({ trig = "math", name = "Metadata for Math HW" }, fmta([[
+	s(
+		{ trig = "lab", name = "Metadata for Lab Report" },
+		fmta(
+			[[
+    ---
+    title: EE194 - Lab <>
+    author: Ayushmaan Aggarwal
+    date: <>
+    toc: true
+    header-includes: |
+      \usepackage{amsmath}
+    ---
+    \newpage
+
+    # Question 1
+
+    ]],
+			{ i(1), f(date, {}) }
+		)
+	),
+
+	s(
+		{ trig = "math", name = "Metadata for Math HW" },
+		fmta(
+			[[
     ---
     title: Math W128A - Homework <>
     author: Ayushmaan Aggarwal
@@ -68,17 +97,22 @@ return {
 
     # Problem 1
 
-    ]], {i(1), f(date, {})})),
+    ]],
+			{ i(1), f(date, {}) }
+		)
+	),
 
-  s({ trig = "code", name = "psuedocode block" }, fmt([[
+	s(
+		{ trig = "code", name = "psuedocode block" },
+		fmt(
+			[[
     ```matlab
     {}
     ```
-    ]], {i(1)})),
+    ]],
+			{ i(1) }
+		)
+	),
 
-  s({ trig = "\\\\", name = "Comment" }, fmt([[<!-- {} -->]],
-    {i(1)})),
-
-
-}, {
-}
+	s({ trig = "\\\\", name = "Comment" }, fmt([[<!-- {} -->]], { i(1) })),
+}, {}
