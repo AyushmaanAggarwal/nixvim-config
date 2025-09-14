@@ -29,16 +29,16 @@ local k = require("luasnip.nodes.key_indexer").new_key
 --TODO: Need to add \lim, better fraction support,
 
 return {
-	s("ep", t([[\epsilon]])),
-	s("al", t([[\alpha]])),
-	s("be", t([[\beta]])),
-	s("ga", t([[gamma]])),
-	s("la", t([[\lambda]])),
-	s("de", t([[\delta]])),
-	s("inf", t([[\infty]])),
-	s("ap", t([[\approx]])),
-	s("pr", t([[\prod]])),
+  s("ep", t([[\epsilon]])),
+  s("al", t([[\alpha]])),
+  s("be", t([[\beta]])),
+  s("ga", t([[gamma]])),
+  s("la", t([[\lambda]])),
+  s("de", t([[\delta]])),
+  s("inf", t([[\infty]])),
+  s("ap", t([[\approx]])),
+  s("pr", t([[\prod]])),
 }, {
-	s("qed", t([[$\square$]])),
-	s("rar", t([[\rightarrow]])),
+  s("qed", t([[$\square$]])),
+  s("rar", t([[\rightarrow]])),
 }

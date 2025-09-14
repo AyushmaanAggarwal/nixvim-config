@@ -27,7 +27,10 @@ local fmta = require("luasnip.extras.fmt").fmta
 
 return {
   -- Default Configuration
-  s({ trig = "nix", name = "Default nix configuration" }, fmta([[
+  s(
+    { trig = "nix", name = "Default nix configuration" },
+    fmta(
+      [[
       {
         inputs,
         config,
@@ -41,9 +44,15 @@ return {
       }: {
         <>
       }
-    ]], {i(1)})),
+    ]],
+      { i(1) }
+    )
+  ),
 
- s({ trig = "full", name = "Import config" }, fmta([[
+  s(
+    { trig = "full", name = "Import config" },
+    fmta(
+      [[
       {
         inputs,
         config,
@@ -69,46 +78,81 @@ return {
           <>
         };
       }
-    ]], {i(1), i(2), rep(2), rep(2), i(3)})),
+    ]],
+      { i(1), i(2), rep(2), rep(2), i(3) }
+    )
+  ),
 
   -- Import Configuration
-  s({ trig = "imports", name = "Import config" }, fmta([[
+  s(
+    { trig = "imports", name = "Import config" },
+    fmta(
+      [[
       imports = [ <> ];
-    ]], {i(1)})),
+    ]],
+      { i(1) }
+    )
+  ),
 
-  s({ trig = "let", name = "Let-In statement" }, fmta([[
+  s(
+    { trig = "let", name = "Let-In statement" },
+    fmta(
+      [[
       let
         <>
       in
-    ]], {i(1)})),
-
+    ]],
+      { i(1) }
+    )
+  ),
 
   -- Make Options
-  s({ trig = "booloption", name = "Make Option" }, fmta([[
+  s(
+    { trig = "booloption", name = "Make Option" },
+    fmta(
+      [[
       <>.enable = lib.mkOption {
         type = lib.types.bool;
         description = "Enables <>";
         default = false;
       };
-    ]], {i(1), rep(1)})),
-   s({ trig = "stringoption", name = "Make Option" }, fmta([[
+    ]],
+      { i(1), rep(1) }
+    )
+  ),
+  s(
+    { trig = "stringoption", name = "Make Option" },
+    fmta(
+      [[
       <>.<> = lib.mkOption {
         type = lib.types.str;
         description = "<>";
         default = "<>";
       };
-    ]], {i(1, "<service>"), i(2, "<option>"), i(3), i(4)})),
-    s({ trig = "portoption", name = "Make Option" }, fmta([[
+    ]],
+      { i(1, "<service>"), i(2, "<option>"), i(3), i(4) }
+    )
+  ),
+  s(
+    { trig = "portoption", name = "Make Option" },
+    fmta(
+      [[
       <>.<> = lib.mkOption {
         type = lib.types.port;
         description = "Set port for <>";
         default = <>;
       };
-    ]], {i(1, "<service>"), i(2, "<option>"), rep(1), i(3, "8080")})),
-    s({ trig = "pass", name = "Add Sops Secret" }, fmta([[
+    ]],
+      { i(1, "<service>"), i(2, "<option>"), rep(1), i(3, "8080") }
+    )
+  ),
+  s(
+    { trig = "pass", name = "Add Sops Secret" },
+    fmta(
+      [[
       config.sops.secrets.<>.path
-    ]], {i(1, "<name>")})),
-
-
-}, {
-}
+    ]],
+      { i(1, "<name>") }
+    )
+  ),
+}, {}
