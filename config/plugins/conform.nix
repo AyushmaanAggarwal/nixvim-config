@@ -4,6 +4,7 @@
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html#extrapackages
   extraPackages = with pkgs; [
     # Used to format Lua code
+    ruff
     stylua
     nixfmt-rfc-style
   ];
@@ -34,8 +35,8 @@
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
         python = [
-          "isort"
-          "black"
+          "ruff_organize_imports"
+          "ruff_format"
         ];
       };
       formatters = {
