@@ -33,7 +33,10 @@
       formatters_by_ft = {
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
-        # python = [ "isort "black" ];
+        python = [
+          "isort"
+          "black"
+        ];
       };
       formatters = {
         stylua = {
