@@ -24,10 +24,11 @@
       integrations = {
         markdown = {
           enabled = true;
-          clear_in_insert_mode = false;
           download_remote_images = true;
+
+          clear_in_insert_mode = true;
           only_render_image_at_cursor = true;
-          floating_windows = true;
+          floating_windows = false;
           filetypes = [
             "markdown"
             "vimwiki"
@@ -61,5 +62,21 @@
     };
 
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>i";
+      action.__raw = ''
+        function()
+          if require("image").is_enabled() then
+            require("image").disable()
+          else
+            require("image").enable()
+          end
+        end
+      '';
+    }
+  ];
 
 }

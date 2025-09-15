@@ -1,0 +1,29 @@
+name: "Flake.lock: update Nix dependencies"
+
+on:
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    - cron: '0 2 * * 0' # runs weekly on Sunday at 02:00
+
+jobs:
+  nix-flake-update:
+    permissions:
+      contents: write
+      id-token: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - uses: DeterminateSystems/update-flake-lock@main
+        id: update
+        with:
+          pr-title: "Update Nix Flake inputs"
+          commit-msg: "chore(flake): bump inputs"
+          pr-labels: |
+            dependencies
+            automated
+      - run: "gh pr merge --auto --squash ${{ steps.update.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ github.token }}

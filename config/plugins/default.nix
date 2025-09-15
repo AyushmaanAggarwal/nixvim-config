@@ -22,7 +22,7 @@
     # Parse Code
     ./lsp.nix
     ./lint.nix
-    ./guess-indent.nix
+    ./sleuth.nix
     ./treesitter.nix
     ./indent_line.nix
     ./todo-comments.nix

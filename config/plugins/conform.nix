@@ -35,6 +35,18 @@
         nix = [ "nixfmt" ];
         # python = [ "isort "black" ];
       };
+      formatters = {
+        stylua = {
+          args = [
+            "--search-parent-directories"
+            "--indent-type"
+            "Spaces"
+            "--stdin-filepath"
+            "$FILENAME"
+            "-"
+          ];
+        };
+      };
     };
   };
 
