@@ -66,34 +66,55 @@ return {
   ),
 
   s(
-    { trig = "math", name = "Metadata for Math HW" },
+    { trig = "hw194", name = "Metadata for 194 HW" },
     fmta(
       [[
     ---
-    title: Math W128A - Homework <>
+    title: EE194- Homework <>
     author: Ayushmaan Aggarwal
     date: <>
     header-includes: |
       \usepackage{amsmath}
-      \newcommand{\lcm}{\operatorname{lcm}}
-      \newcommand{\Aut}{\operatorname{Aut}}
-      \newcommand{\R}{\mathbb R}
-      \newcommand{\C}{\mathbb C}
-      \newcommand{\N}{\mathbb N}
-      \newcommand{\Q}{\mathbb Q}
-      \newcommand{\Z}{\mathbb Z}
-      \newcommand{\norm}{\trianglelefteq}
-      \newcommand{\lt}{\ensuremath <<}
-      \newcommand{\gt}{\ensuremath >>}
-
-      \renewcommand{\P}{\mathbb P}
-      \renewcommand{\l}{\langle}
-      \renewcommand{\r}{\rangle}
-      \renewcommand{\Re}{\operatorname{Re}}
-      \renewcommand{\Im}{\operatorname{Im}}
+      \usepackage{float}
+      \let\origfigure\figure
+      \let\endorigfigure\endfigure
+      \renewenvironment{figure}[1][2] {
+          \expandafter\origfigure\expandafter[H]
+      } {
+          \endorigfigure
+      }
     ---
-    
-    Self Grade: 2
+
+    \newpage
+
+    # Problem 1
+
+    ]],
+      { i(1), f(date, {}) }
+    )
+  ),
+
+  s(
+    { trig = "hw151", name = "Metadata for Math HW" },
+    fmta(
+      [[
+    ---
+    title: EE151 - Homework <>
+    author: Ayushmaan Aggarwal
+    date: <>
+    header-includes: |
+      \usepackage{amsmath}
+      \usepackage{float}
+      \let\origfigure\figure
+      \let\endorigfigure\endfigure
+      \renewenvironment{figure}[1][2] {
+          \expandafter\origfigure\expandafter[H]
+      } {
+          \endorigfigure
+      }
+    ---
+
+    \newpage
 
     # Problem 1
 
@@ -106,7 +127,7 @@ return {
     { trig = "code", name = "psuedocode block" },
     fmt(
       [[
-    ```matlab
+    ```verilog
     {}
     ```
     ]],
@@ -115,4 +136,15 @@ return {
   ),
 
   s({ trig = "\\\\", name = "Comment" }, fmt([[<!-- {} -->]], { i(1) })),
+  s(
+    { trig = "new", name = "newpage" },
+    fmt(
+      [[
+
+  \newpage
+
+  ]],
+      {}
+    )
+  ),
 }, {}
