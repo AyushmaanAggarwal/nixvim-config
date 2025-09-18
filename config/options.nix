@@ -24,6 +24,7 @@
     hlsearch = true;
 
     signcolumn = "yes";
+    colorcolumn = [ "80" ];
     updatetime = 250;
     timeoutlen = 300;
     # Insert new splits
