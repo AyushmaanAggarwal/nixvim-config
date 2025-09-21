@@ -2,6 +2,7 @@
 {
   extraPackages = with pkgs; [
     gcc
+    tree-sitter-grammars.tree-sitter-verilog
   ];
 
   # Highlight, edit, and navigate code
