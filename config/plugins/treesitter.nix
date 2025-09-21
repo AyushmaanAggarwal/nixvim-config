@@ -32,7 +32,6 @@
       # Other
       tree-sitter-make
       tree-sitter-vim
-      tree-sitter-nvim
       tree-sitter-regex
       tree-sitter-latex
       tree-sitter-markdown
