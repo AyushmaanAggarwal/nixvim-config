@@ -48,18 +48,12 @@
     # Enable the following language servers
     servers = {
       # Python lsp
-      pyright = {
-        enable = true;
-      };
+      pyright.enable = true;
 
-      html = {
-        enable = true;
-      };
+      html.enable = true;
 
       # Nix lsp
-      nil_ls = {
-        enable = true;
-      };
+      nil_ls.enable = true;
 
       # Verilog
       verible.enable = true;

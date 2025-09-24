@@ -1,4 +1,10 @@
+{ pkgs, ... }:
 {
+  # Dependencies
+  extraPackages = with pkgs; [
+    markdownlint-cli
+  ];
+
   # Linting
   # https://nix-community.github.io/nixvim/plugins/lint/index.html
   plugins.lint = {
@@ -7,7 +13,7 @@
     # NOTE: Enabling these will cause errors unless these tools are installed
     lintersByFt = {
       nix = [ "nix" ];
-      #markdown = [ "markdownlint" ];
+      markdown = [ "markdownlint" ];
       #clojure = ["clj-kondo"];
       #dockerfile = ["hadolint"];
       #inko = ["inko"];

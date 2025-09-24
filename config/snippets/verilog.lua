@@ -97,4 +97,42 @@ return {
   ),
 
   s({ trig = "assign", name = "assign statement" }, fmta([[assign <> = <>;]], { i(1), i(2) })),
+  s(
+    { trig = "local", name = "local statement" },
+    fmta([[localparam <> = <>'b0;]], { i(1, "DEFAULT_STATE"), i(2, "1") })
+  ),
+  s(
+    { trig = "generate", name = "generate block" },
+    fmt([[
+      // 1. Define state registers (state, next_state, with proper bitwidths).
+      
+      // 2. Define state names as localparams (optional but recommended to make your code clean).
+      localparam DEFAULT_STATE = 2'b00;
+      
+      // 3. Declare regs for output that will be produced by the combinational block.
+      reg output_1_int; // int for internal.
+      assign output_1 = output_1_int;
+
+      // 4. An always@(posedge clk) block to handle state assignment.
+      always @ (posedge clk) begin
+          state <= next_state; // For this example, this is the only line that should be in this block. For reset, see the combinational block below.
+        // Note that any sequential (flipflops) elements must be in posedge clk block (counter, accumulator, state etc.).
+      end
+      
+      // 5. One or more always@(*) blocks to handle 1) output for each state and 2) state transition logic (both of them may also depend on input).
+      always @ (*) begin
+          if(reset)begin
+              next_state = DEFAULT_STATE; 
+          end else begin
+              case(state)
+                  DEFAULT_STATE: begin
+                      output_1_int = 1'b1;
+                      if(input_1) next_state = ...;
+                      else next_state = ...;
+                  end
+              endcase
+          end 
+      end
+      ]], {}),
+
 }, {}
