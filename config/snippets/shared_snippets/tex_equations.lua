@@ -30,20 +30,32 @@ local k = require("luasnip.nodes.key_indexer").new_key
 -- local tex = require("/home/ayushmaan/.dotfiles/config/snippets/utils/conditions")
 
 local tab_snips = {
-  -- Simple Tab Complete Snippets
+  -- Simple Snippets
+  s("sin", fmta([[\sin(<>)]], { i(1) })),
+  s("sinh", fmta([[\sinh(<>)]], { i(1) })),
+  s("cos", fmta([[\cos(<>)]], { i(1) })),
+  s("cosh", fmta([[\cosh(<>)]], { i(1) })),
+  s("tan", fmta([[\tan(<>)]], { i(1) })),
+  s("tanh", fmta([[\tanh(<>)]], { i(1) })),
+  s("cot", fmta([[\cot(<>)]], { i(1) })),
+  s("coth", fmta([[\coth(<>)]], { i(1) })),
+  s("exp", fmta([[e^{<>}]], { i(1) })),
+  s("eul", fmta([[\cos(<>) + j\sin(<>)}]], { i(1), r(1) })),
   s("gint", t([[\int_{\gamma} ]])),
+  s("tx", fmta([[\text{<>}]], { i(1) })),
+  s("mk", fmta([[$<>$]], { i(1) })),
+  s("sq", fmta([[\sqrt{<>}]], { i(1) })),
+  s("set", fmta([[\{<>\}]], { i(1) })),
+  s("inr", fmta([[\in\R]], {})),
+  s("inc", fmta([[\in\C]], {})),
+  -- More Complicated Snippets
+  s("int", fmta([[\int_{<>}^{<>}]], { i(1), i(2) })),
   s("int", fmta([[\int_{<>}^{<>}]], { i(1), i(2) })),
   s("sum", fmta([[\sum_{<>}^{<>}]], { i(1), i(2) })),
   s("lim", fmta([[\lim_{<> \rightarrow <>}]], { i(1), i(2) })),
   s("diff", fmta([[\frac{\partial <>}{\partial <>}]], { i(1), i(2) })),
-  s("txt", fmta([[\text{<>}]], { i(1) })),
-  s("sq", fmta([[\sqrt{<>}]], { i(1) })),
-  s("mk", fmta([[$<>$]], { i(1) })),
-  s("set", fmta([[\{<>\}]], { i(1) })),
   s("cirset", fmta([[C_{<>}(<>)]], { i(1, "r"), i(2) })),
   s("diskset", fmta([[D_{<>}(<>)]], { i(1, "r"), i(2) })),
-  s("inr", fmta([[\in\R]], {})),
-  s("inc", fmta([[\in\C]], {})),
 
   -- Multi line Tab Complete Snippets
   s(
@@ -67,7 +79,19 @@ local tab_snips = {
     &= <> \\
     \end{align<>}
     ]],
-      { i(1), i(2), i(3), rep(1) }
+      { i(1, "*"), i(2), i(3), rep(1) }
+    )
+  ),
+  s(
+    "al",
+    fmta(
+      [[
+    \begin{align}
+    <>
+    &= <> \\
+    \end{align}
+    ]],
+      { i(1), i(2) }
     )
   ),
 

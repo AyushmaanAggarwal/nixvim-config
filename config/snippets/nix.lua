@@ -83,6 +83,22 @@ return {
     )
   ),
 
+  s(
+    { trig = "nixvim", name = "Import nixvim config" },
+    fmta(
+      [[
+      { pkgs, ... }:
+      {
+        plugins.<> = {
+          enable = true;
+          settings = {<>};
+        };
+      }
+    ]],
+      { i(1), i(2) }
+    )
+  ),
+
   -- Import Configuration
   s(
     { trig = "imports", name = "Import config" },

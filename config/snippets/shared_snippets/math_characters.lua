@@ -34,10 +34,27 @@ return {
   s("be", t([[\beta]])),
   s("ga", t([[gamma]])),
   s("la", t([[\lambda]])),
-  s("de", t([[\delta]])),
   s("inf", t([[\infty]])),
   s("ap", t([[\approx]])),
   s("pr", t([[\prod]])),
+  s("ka", t([[\kappa]])),
+  -- case dependent
+  s("de", t([[\delta]])),
+  s("De", t([[\Delta]])),
+  s("si", t([[\sigma]])),
+  s("Si", t([[\Sigma]])),
+  s("om", t([[\omega]])),
+  s("Om", t([[\Omega]])),
+  -- operators
+  s("op", t([[\hat ]])),
+  s("til", t([[\tilde ]])),
+  s("der", t([[\dot]])),
+  s("dder", t([[\ddot]])),
+  s("ddder", t([[\dddot]])),
+  -- special characters
+  s("dw", t([[\Delta w]])),
+  s("vr", t([[\vec r]])), -- Vector R
+  s("osi", t([[\hat \sigma]])), -- Operator Sigma
 }, {
   s("qed", t([[$\square$]])),
   s("rar", t([[\rightarrow]])),

@@ -73,6 +73,7 @@ return {
     title: EE194- Homework <>
     author: Ayushmaan Aggarwal
     date: <>
+    toc: true
     header-includes: |
       \usepackage{amsmath}
       \usepackage{float}
@@ -102,6 +103,7 @@ return {
     title: EE151 - Homework <>
     author: Ayushmaan Aggarwal
     date: <>
+    toc: true
     header-includes: |
       \usepackage{amsmath}
       \usepackage{float}
@@ -135,7 +137,7 @@ return {
     )
   ),
 
-  s({ trig = "\\\\", name = "Comment" }, fmt([[<!-- {} -->]], { i(1) })),
+  s({ trig = "\\\\", name = "comment" }, fmt([[<!-- {} -->]], { i(1) })),
   s(
     { trig = "new", name = "newpage" },
     fmt(

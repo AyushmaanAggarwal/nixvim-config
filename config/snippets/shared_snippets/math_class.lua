@@ -34,6 +34,9 @@ return {
     { trig = "question", name = "Question HW" },
     fmta(
       [[
+
+    \newpage 
+
     # Question <>
 
 
@@ -45,6 +48,9 @@ return {
     { trig = "prob", name = "Problem for Math HW" },
     fmta(
       [[
+
+    \newpage
+
     # Problem <>
 
 
