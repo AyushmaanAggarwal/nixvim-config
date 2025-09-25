@@ -83,13 +83,13 @@ local tab_snips = {
     )
   ),
   s(
-    "al",
+    "ali",
     fmta(
       [[
-    \begin{align}
+    $$\begin{align*}
     <>
     &= <> \\
-    \end{align}
+    \end{align*}$$
     ]],
       { i(1), i(2) }
     )
