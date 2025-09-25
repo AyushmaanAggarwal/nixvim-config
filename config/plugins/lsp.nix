@@ -58,6 +58,9 @@
       # Verilog
       verible.enable = true;
 
+      # Markdown
+      marksman.enable = true;
+
       # Lua lsp
       lua_ls = {
         enable = true;

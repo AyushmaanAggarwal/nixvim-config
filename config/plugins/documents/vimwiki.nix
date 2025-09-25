@@ -15,8 +15,9 @@
         ".mdown" = "markdown";
       };
       use_mouse = 1;
-      markdown_link_ext = 1;
+      markdown_link_ext = 0;
       markdown_header_style = 0;
+      conceallevel = 0;
     };
   };
 }

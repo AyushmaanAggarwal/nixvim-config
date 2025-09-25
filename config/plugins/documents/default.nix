@@ -2,6 +2,7 @@
   imports = [
     ./img-clip.nix
     ./vimtex.nix
-    ./vimwiki.nix
+    ./markdown-render.nix
+    # ./vimwiki.nix
   ];
 }
