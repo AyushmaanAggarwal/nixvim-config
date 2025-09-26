@@ -5,30 +5,20 @@ local f = ls.function_node
 local d = ls.dynamic_node
 -- local c = ls.choice_node
 -- local r = ls.restore_node
--- local events = require("luasnip.util.events")
--- local ai = require("luasnip.nodes.absolute_indexer")
--- local extras = require("luasnip.extras")
--- local l = extras.lambda
 local rep = extras.rep
 -- local m = extras.match
+
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local make_condition = require("luasnip.extras.conditions").make_condition
 
-local date = function()
-  return { os.date("%m/%d/%Y") }
-end
+local template = require("utils/templates")
 
 local function is_start_of_file()
   -- Ensure that this is only run at beginning of file
   return (vim.fn.line("$") == 1)
 end
 local is_start_of_file_cond = make_condition(is_start_of_file)
-
-local get_file_number = function()
-  -- Get last number in file path
-  return string.match(vim.fn.expand("%"), "%d+$")
-end
 
 local file_template = function(text, choices)
   return function(args)
