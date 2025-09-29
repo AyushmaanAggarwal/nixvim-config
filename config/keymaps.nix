@@ -69,9 +69,14 @@ in
     {
       mode = "n";
       key = "<leader>rd";
+      action = ":!python %<CR>";
+      options.desc = "[R]un [P]ython Script";
+    }
+    {
+      mode = "n";
+      key = "<leader>rp";
       action.__raw = ''
         function()
-          local file_type = vim.api.nvim_buf_get_option(0, 'filetype')
           local raw_file_name = vim.api.nvim_buf_get_name(0)
           local file_name = raw_file_name:gsub('%s', '\\ ')
           local raw_file_pdf = string.sub(raw_file_name, 1, -3) .. "pdf"
@@ -80,12 +85,13 @@ in
 
           if file_type == 'md' or file_type == "vimwiki" then
             vim.cmd(string.format(":!pandoc -s %s -o %s --pdf-engine=pdflatex &", file_name, file_pdf))
-            vim.cmd(string.format(":silent !nohup zathura %s &", file_pdf))
+            vim.cmd(string.format(":!zathura %s &", file_pdf))
           end
         end
       '';
       options.desc = "[R]un [D]ocument";
     }
+
   ]
   # Move focus between window splits
   ++ (lib.mapAttrsToList (location: key: {

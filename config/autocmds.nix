@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   autoCmd = [
     {
@@ -9,7 +10,7 @@
               local file_name = raw_file_name:gsub('%s', '\\ ')
               local raw_file_pdf = string.sub(raw_file_name, 1, -3) .. "pdf"
               local file_pdf = raw_file_pdf:gsub('%s', '\\ ')
-              vim.cmd(string.format(":!pandoc -s %s -o %s --pdf-engine=pdflatex", file_name, file_pdf))
+              vim.cmd(string.format(":!zsh -c \"pandoc -s %s -o %s --pdf-engine=pdflatex\"", file_name, file_pdf))
             end
           end
       '';
