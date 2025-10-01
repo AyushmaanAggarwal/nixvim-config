@@ -68,15 +68,16 @@ in
     }
     {
       mode = "n";
-      key = "<leader>rd";
+      key = "<leader>rp";
       action = ":!python %<CR>";
       options.desc = "[R]un [P]ython Script";
     }
     {
       mode = "n";
-      key = "<leader>rp";
+      key = "<leader>rd";
       action.__raw = ''
         function()
+          local file_type = vim.bo.filetype
           local raw_file_name = vim.api.nvim_buf_get_name(0)
           local file_name = raw_file_name:gsub('%s', '\\ ')
           local raw_file_pdf = string.sub(raw_file_name, 1, -3) .. "pdf"

@@ -7,6 +7,10 @@
   plugins.render-markdown = {
     enable = true;
     settings = {
+      file_types = [
+        "markdown"
+        "vimwiki"
+      ];
       latex = {
         # Turn on / off latex rendering.
         enabled = true;
@@ -25,4 +29,8 @@
       };
     };
   };
+
+  extraConfigLua = ''
+    vim.treesitter.language.register('markdown', 'vimwiki')
+  '';
 }
