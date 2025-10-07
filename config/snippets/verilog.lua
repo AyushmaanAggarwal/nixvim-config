@@ -103,7 +103,8 @@ return {
   ),
   s(
     { trig = "generate", name = "generate block" },
-    fmt([[
+    fmt(
+      [[
       // 1. Define state registers (state, next_state, with proper bitwidths).
       
       // 2. Define state names as localparams (optional but recommended to make your code clean).
@@ -133,6 +134,8 @@ return {
               endcase
           end 
       end
-      ]], {}),
-
+      ]],
+      {}
+    )
+  ),
 }, {}
