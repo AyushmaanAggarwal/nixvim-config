@@ -45,16 +45,23 @@ return {
   s("Si", t([[\Sigma]])),
   s("om", t([[\omega]])),
   s("Om", t([[\Omega]])),
+  -- units
+  s("gh", t([[\text{ GHz}]])),
+  s("mh", t([[\text{ MHz}]])),
   -- operators
   s("op", t([[\hat ]])),
   s("til", t([[\tilde ]])),
-  s("der", t([[\dot]])),
-  s("dder", t([[\ddot]])),
-  s("ddder", t([[\dddot]])),
+  s("drt", t([[\frac{\text{d}}{\text{d} t}]])),
+  s("dt", t([[\text{d}t]])),
+  s("dr", t([[\dot]])),
+  s("ddr", t([[\ddot]])),
+  s("dddr", t([[\dddot]])),
+  s("da", t([[^\dagger]])),
   -- special characters
   s("dw", t([[\Delta w]])),
   s("vr", t([[\vec r]])), -- Vector R
   s("osi", t([[\hat \sigma]])), -- Operator Sigma
+  s("un", t([[\hat U]])), -- Operator Sigma
 }, {
   s("qed", t([[$\square$]])),
   s("rar", t([[\rightarrow]])),
