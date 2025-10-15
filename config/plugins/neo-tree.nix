@@ -4,9 +4,6 @@
   plugins.neo-tree = {
     enable = true;
 
-    filesystem.window.mappings = {
-      "\\" = "close_window";
-    };
     defaultComponentConfigs.icon = {
       folderClosed = "";
       folderOpen = "";
