@@ -3,8 +3,7 @@
   # https://nix-community.github.io/nixvim/plugins/neo-tree/index.html?highlight=neo-tree#pluginsneo-treepackage
   plugins.neo-tree = {
     enable = true;
-
-    defaultComponentConfigs.icon = {
+    settings.default_component_configs.icon = {
       folderClosed = "";
       folderOpen = "";
       folderEmpty = "";
