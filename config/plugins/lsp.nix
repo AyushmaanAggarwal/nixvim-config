@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  extraPackages = with pkgs; [
+    verible
+  ];
   # Useful status updates for LSP.
   # https://nix-community.github.io/nixvim/plugins/fidget/index.html
   plugins.fidget = {
@@ -56,7 +59,28 @@
       nil_ls.enable = true;
 
       # Verilog
-      verible.enable = true;
+      verible = {
+        enable = true;
+        filetypes = [
+          "verilog"
+          "systemverilog"
+        ];
+        cmd = [
+          "${pkgs.verible}/bin/verible-verilog-ls"
+          "--rules=parameter-name-style=localparam_style:ALL_CAPS,-always-comb,-explicit-parameter-storage-type,-unpacked-dimensions-range-ordering,-no-tabs"
+        ];
+        rootMarkers = [ ".git" ];
+      };
+
+      veridian = {
+        enable = true;
+        package = pkgs.veridian;
+        filetypes = [
+          "verilog"
+          "systemverilog"
+        ];
+        rootMarkers = [ ".git" ];
+      };
 
       # Markdown
       marksman.enable = true;
