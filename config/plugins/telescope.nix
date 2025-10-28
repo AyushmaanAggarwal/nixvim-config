@@ -41,7 +41,7 @@
           desc = "[S]earch [S]elect Telescope";
         };
       };
-      "<leader>sw" = {
+      "<leader>sW" = {
         mode = "n";
         action = "grep_string";
         options = {
@@ -200,7 +200,7 @@
     }
     {
       mode = "n";
-      key = "<leader>sW";
+      key = "<leader>sw";
       action.__raw = ''
         function()
           require('telescope.builtin').live_grep {
