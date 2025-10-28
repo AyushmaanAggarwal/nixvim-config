@@ -74,6 +74,12 @@ in
     }
     {
       mode = "n";
+      key = "<leader>rf";
+      action = ":!nix run<CR>";
+      options.desc = "[R]un Nix [F]lake";
+    }
+    {
+      mode = "n";
       key = "<leader>rd";
       action.__raw = ''
         function()
