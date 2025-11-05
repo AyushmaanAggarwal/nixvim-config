@@ -3,7 +3,7 @@
   imports = [
     # File Management
     ./oil.nix
-    ./neo-tree.nix
+    #./neo-tree.nix
 
     # Autocomplete
     ./cmp.nix

@@ -14,6 +14,12 @@
     }
     {
       mode = "";
+      key = "\\";
+      action = ":Oil<CR>";
+      options.desc = "Open Oil";
+    }
+    {
+      mode = "";
       key = "<leader>ot";
       action.__raw = ''
         function()
