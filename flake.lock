@@ -83,20 +83,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-temp-fix-verilog": {
+    "nixpkgs-veridian": {
       "locked": {
-        "lastModified": 1760524057,
-        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
+        "lastModified": 1757449999,
+        "narHash": "sha256-XO/AuM+hpDRjjT4lGLDo7t4cjoYdUzekmC7OJMhKo5A=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
+        "rev": "ffa8ef09b95be162416645fedeb87f51ad5cea9c",
         "type": "github"
       },
       "original": {
-        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
+        "rev": "ffa8ef09b95be162416645fedeb87f51ad5cea9c",
         "type": "github"
       }
     },
@@ -163,7 +162,7 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "nixpkgs-temp-fix-verilog": "nixpkgs-temp-fix-verilog",
+        "nixpkgs-veridian": "nixpkgs-veridian",
         "nixvim": "nixvim"
       }
     },

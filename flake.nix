@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-temp-fix-verilog.url = "github:NixOS/nixpkgs/544961dfcce86422ba200ed9a0b00dd4b1486ec5?narHash=sha256-EVAqOteLBFmd7pKkb0%2BFIUyzTF61VKi7YmvP1tw4nEw%3D";
+    nixpkgs-veridian.url = "github:NixOS/nixpkgs/ffa8ef09b95be162416645fedeb87f51ad5cea9c";
     nixvim.url = "github:nix-community/nixvim";
   };
 
@@ -35,7 +35,19 @@
           nixvimLib = nixvim.lib.${system};
           nixvimModule = {
             inherit system;
-            module = import ./config { inherit inputs pkgs lib; };
+            module = {
+              _module.args = {
+                inherit inputs system;
+              };
+            }
+            // (import ./config {
+              inherit
+                inputs
+                pkgs
+                lib
+                system
+                ;
+            });
           };
         in
         {
@@ -51,7 +63,19 @@
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             inherit system;
-            module = import ./config { inherit inputs pkgs lib; };
+            module = {
+              _module.args = {
+                inherit inputs system;
+              };
+            }
+            // (import ./config {
+              inherit
+                inputs
+                pkgs
+                lib
+                system
+                ;
+            });
           };
         in
         {
