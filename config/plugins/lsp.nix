@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   extraPackages = with pkgs; [
     verible
@@ -74,7 +74,7 @@
 
       veridian = {
         enable = true;
-        package = pkgs.veridian;
+        package = inputs.nixpkgs-temp-fix-verilog.veridian;
         filetypes = [
           "verilog"
           "systemverilog"

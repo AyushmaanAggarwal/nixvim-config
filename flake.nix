@@ -3,11 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-temp-fix-verilog.url = "github:NixOS/nixpkgs/544961dfcce86422ba200ed9a0b00dd4b1486ec5?narHash=sha256-EVAqOteLBFmd7pKkb0%2BFIUyzTF61VKi7YmvP1tw4nEw%3D";
     nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs =
-    { nixpkgs, nixvim, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      nixvim,
+      ...
+    }@inputs:
     let
       systems = [
         "x86_64-linux"
@@ -29,7 +35,7 @@
           nixvimLib = nixvim.lib.${system};
           nixvimModule = {
             inherit system;
-            module = import ./config { inherit pkgs lib; };
+            module = import ./config { inherit inputs pkgs lib; };
           };
         in
         {
@@ -45,7 +51,7 @@
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             inherit system;
-            module = import ./config { inherit pkgs lib; };
+            module = import ./config { inherit inputs pkgs lib; };
           };
         in
         {

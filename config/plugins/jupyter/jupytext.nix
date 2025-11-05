@@ -1,9 +1,8 @@
 { pkgs, ... }:
 {
+  extraPython3Packages = p: with p; [ jupytext ];
   plugins.jupytext = {
     enable = true;
-
-    python3Dependencies = p: with p; [ jupytext ];
     settings = {
       style = "light";
       output_extension = "auto";
