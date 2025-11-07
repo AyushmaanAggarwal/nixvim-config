@@ -76,6 +76,7 @@ return {
     toc: true
     header-includes: |
       \usepackage{amsmath}
+      \usepackage{xcolor}
       \usepackage{float}
       \let\origfigure\figure
       \let\endorigfigure\endfigure
@@ -106,6 +107,8 @@ return {
     toc: true
     header-includes: |
       \usepackage{amsmath}
+      \usepackage{circuitikz}
+      \usepackage{xcolor}
       \usepackage{float}
       \let\origfigure\figure
       \let\endorigfigure\endfigure

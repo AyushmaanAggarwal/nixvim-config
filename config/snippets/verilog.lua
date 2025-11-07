@@ -24,7 +24,7 @@ return {
     { trig = "alwaysall", name = "always @(*) block" },
     fmta(
       [[
-      always @(*) begin \\ use =
+      always @(*) begin
         <>
       end
     ]],
