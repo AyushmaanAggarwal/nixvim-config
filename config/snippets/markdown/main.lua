@@ -149,4 +149,8 @@ return {
       {}
     )
   ),
+
+  s({ trig = "red", name = "red text" }, fmta([[\textcolor{red}{<>}]], { i(1) })),
+  s({ trig = "green", name = "green text" }, fmta([[\textcolor{green}{<>}]], { i(1) })),
+  s({ trig = "blue", name = "blue text" }, fmta([[\textcolor{blue}{<>}]], { i(1) })),
 }, {}
