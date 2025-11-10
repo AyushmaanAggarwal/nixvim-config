@@ -61,7 +61,14 @@
       html.enable = true;
 
       # Nix lsp
-      nil_ls.enable = true;
+      nil_ls = {
+        enable = true;
+        settings.nix.flake = {
+          autoArchive = true;
+          autoEvalInputs = true;
+          nixpkgsInputName = "nixpkgs";
+        };
+      };
 
       # Verilog
       verible = {
