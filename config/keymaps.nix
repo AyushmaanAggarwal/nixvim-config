@@ -56,15 +56,15 @@ in
     # Split Window
     {
       mode = "n";
-      key = "<leader>pv";
+      key = "<leader>v";
       action = ":vsplit<CR>";
-      options.desc = "S[p]lit [V]ertical";
+      options.desc = "Split [V]ertical";
     }
     {
       mode = "n";
-      key = "<leader>ph";
+      key = "<leader>c";
       action = ":split<CR>";
-      options.desc = "S[p]lit [H]orizontal";
+      options.desc = "Split Horizontal";
     }
     {
       mode = "n";
