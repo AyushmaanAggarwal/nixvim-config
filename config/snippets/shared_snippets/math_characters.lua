@@ -50,6 +50,10 @@ return {
   s("mh", t([[\text{ MHz}]])),
   -- operators
   s("op", t([[\hat ]])),
+  s("opq", t([[\hat q]])),
+  s("opa", t([[\hat a]])),
+  s("hw", t([[\hbar w_]])),
+
   s("til", t([[\tilde ]])),
   s("drt", t([[\frac{\text{d}}{\text{d} t}]])),
   s("dt", t([[\text{d}t]])),
