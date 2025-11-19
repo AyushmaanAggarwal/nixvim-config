@@ -50,8 +50,10 @@ return {
   s("mh", t([[\text{ MHz}]])),
   -- operators
   s("op", t([[\hat ]])),
-  s("opq", t([[\hat q]])),
-  s("opa", t([[\hat a]])),
+  s("opq", t([[\hat q ]])),
+  s("opqd", t([[\hat q^\dagger ]])),
+  s("opa", t([[\hat a ]])),
+  s("opad", t([[\hat a^\dagger ]])),
   s("hw", t([[\hbar w_]])),
 
   s("til", t([[\tilde ]])),
