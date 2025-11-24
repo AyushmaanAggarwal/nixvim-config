@@ -104,4 +104,26 @@ return {
       { i(1) }
     )
   ),
+  s(
+    { trig = "frag", name = "fragment block" },
+    fmta(
+      [[
+    :::{.fragment .incremental style="font-size: 1.5rem;"}
+    <>
+    :::
+    ]],
+      { i(1) }
+    )
+  ),
+  s(
+    { trig = "note", name = "fragment block" },
+    fmta(
+      [[
+    :::{.notes}
+    <>
+    :::
+    ]],
+      { i(1) }
+    )
+  ),
 }, {}
