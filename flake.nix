@@ -34,10 +34,10 @@
           lib = nixpkgs.legacyPackages.${system};
           nixvimLib = nixvim.lib.${system};
           nixvimModule = {
-            inherit system;
             module = {
               _module.args = {
-                inherit inputs system;
+                inherit inputs;
+                system = pkgs.stdenv.hostPlatform.system;
               };
             }
             // (import ./config {
@@ -45,7 +45,6 @@
                 inputs
                 pkgs
                 lib
-                system
                 ;
             });
           };
@@ -62,10 +61,10 @@
           lib = nixpkgs.legacyPackages.${system};
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
-            inherit system;
             module = {
               _module.args = {
-                inherit inputs system;
+                inherit inputs;
+                system = pkgs.stdenv.hostPlatform.system;
               };
             }
             // (import ./config {
@@ -73,7 +72,6 @@
                 inputs
                 pkgs
                 lib
-                system
                 ;
             });
           };

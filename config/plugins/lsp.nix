@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  system,
   ...
 }:
 {
@@ -86,7 +85,7 @@
 
       veridian = {
         enable = true;
-        package = inputs.nixpkgs-veridian.legacyPackages.${system}.veridian;
+        package = inputs.nixpkgs-veridian.legacyPackages.${pkgs.stdenv.hostPlatform.system}.veridian;
         filetypes = [
           "verilog"
           "systemverilog"
