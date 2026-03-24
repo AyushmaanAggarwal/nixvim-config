@@ -2,19 +2,14 @@
   description = "Ayu's NixVim Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-veridian.url = "github:NixOS/nixpkgs/ffa8ef09b95be162416645fedeb87f51ad5cea9c";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixvim,
-      ...
-    }@inputs:
-    let
+    { nixvim, flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -22,64 +17,32 @@
         "aarch64-darwin"
       ];
 
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
-      checks = forAllSystems (
-        system:
+      perSystem =
+        { system, ... }:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
-          lib = nixpkgs.legacyPackages.${system};
           nixvimLib = nixvim.lib.${system};
-          nixvimModule = {
-            module = {
-              _module.args = {
-                inherit inputs;
-                system = pkgs.stdenv.hostPlatform.system;
-              };
-            }
-            // (import ./config {
-              inherit
-                inputs
-                pkgs
-                lib
-                ;
-            });
-          };
-        in
-        {
-          # Lets you run `nix flake check .` to check nixvim
-          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-        }
-      );
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-          lib = nixpkgs.legacyPackages.${system};
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
-            module = {
-              _module.args = {
-                inherit inputs;
-                system = pkgs.stdenv.hostPlatform.system;
-              };
-            }
-            // (import ./config {
-              inherit
-                inputs
-                pkgs
-                lib
-                ;
-            });
+            inherit system; # or alternatively, set `pkgs`
+            module = import ./config; # import the module directly
+            # You can use `extraSpecialArgs` to pass additional arguments to your module files
+            extraSpecialArgs = {
+              # inherit (inputs) foo;
+            };
           };
+          nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
-          # Lets you run `nix run .` to start nixvim
-          default = nixvim'.makeNixvimWithModule nixvimModule;
-        }
-      );
+          formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+          checks = {
+            # Run `nix flake check .` to verify that your config is not broken
+            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          };
+
+          packages = {
+            # Lets you run `nix run .` to start nixvim
+            default = nvim;
+          };
+        };
     };
 }
