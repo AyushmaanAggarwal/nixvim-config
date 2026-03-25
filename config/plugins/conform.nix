@@ -6,7 +6,7 @@
     # Used to format Lua code
     ruff
     stylua
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   # Autoformat
