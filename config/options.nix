@@ -9,7 +9,9 @@
     have_nerd_font = true;
   };
 
-  filetype.extension = { vh = "verilog";}; 
+  filetype.extension = {
+    vh = "verilog";
+  };
 
   opts = {
     # Line Numbers
