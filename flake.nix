@@ -8,17 +8,16 @@
   };
 
   outputs =
-    { nixvim, flake-parts, ... }@inputs:
+    { self, nixvim, flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
-        "x86_64-darwin"
         "aarch64-darwin"
       ];
 
       perSystem =
-        { system, ... }:
+        { pkgs, system, ... }:
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
@@ -33,7 +32,7 @@
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
-          formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt;
           checks = {
             # Run `nix flake check .` to verify that your config is not broken
             default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
