@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository has been moved to https://codeberg.org/AyushmaanAggarwal/nixvim-config
+
 # Introduction
 This configuration drew heavy inspiration from both [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and it's derivative [kickstart.nixvim](https://github.com/JMartJonesy/kickstart.nixvim/tree/main/config/plugins/kickstart) 
 
